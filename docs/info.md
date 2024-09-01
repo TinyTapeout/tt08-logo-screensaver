@@ -9,12 +9,16 @@ You can also include images in this folder and reference them in the markdown. E
 
 ## How it works
 
-Explain how your project works
+Displays a bouncing Tiny Tapeout logo on the screen.
+
+![Tiny Tapeout screensaver](screensaver.jpg)
 
 ## How to test
 
-Explain how to use your project
+Connect to a VGA monitor. Set the following inputs to configure the design:
+- `tile` (ui_in[0]) to repeat the logo and tile it across the screen,
+- `color` (ui_in[1]) to enable color output.
 
 ## External hardware
 
-List external hardware used in your project (e.g. PMOD, LED display, etc), if any
+[TinyVGA PMOD](https://github.com/mole99/tiny-vga)
