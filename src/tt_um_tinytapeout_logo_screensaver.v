@@ -35,7 +35,7 @@ module tt_um_tinytapeout_logo_screensaver (
 
   // Configuration
   wire cfg_tile = ui_in[0];
-  wire cfg_color = ui_in[1];
+  wire cfg_solid_color = ui_in[1];
 
   // TinyVGA PMOD
   assign uo_out  = {hsync, B[0], G[0], R[0], vsync, B[1], G[1], R[1]};
@@ -66,6 +66,7 @@ module tt_um_tinytapeout_logo_screensaver (
 
   wire pixel_value;
   reg [2:0] color_index;
+  wire [5:0] pallete_color;
   wire [5:0] color;
 
   wire [9:0] x = pix_x - logo_left;
@@ -79,9 +80,12 @@ module tt_um_tinytapeout_logo_screensaver (
   );
 
   palette palette_inst (
-      .color_index(cfg_color ? color_index : `COLOR_WHITE),
-      .rrggbb(color)
+      .color_index(color_index),
+      .rrggbb(pallete_color)
   );
+
+  wire [5:0] gradient_color = {1'b1, y[6:2] - x[6:2] + logo_left[6:2]};
+  assign color = cfg_solid_color ? pallete_color : gradient_color;
 
   // RGB output logic
   always @(posedge clk) begin

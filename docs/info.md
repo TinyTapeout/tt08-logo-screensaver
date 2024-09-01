@@ -9,7 +9,7 @@ You can also include images in this folder and reference them in the markdown. E
 
 ## How it works
 
-Displays a bouncing Tiny Tapeout logo on the screen.
+Displays a bouncing Tiny Tapeout logo on the screen, with animated color gradient.
 
 ![Tiny Tapeout screensaver](screensaver.jpg)
 
@@ -17,7 +17,7 @@ Displays a bouncing Tiny Tapeout logo on the screen.
 
 Connect to a VGA monitor. Set the following inputs to configure the design:
 - `tile` (ui_in[0]) to repeat the logo and tile it across the screen,
-- `color` (ui_in[1]) to enable color output.
+- `solid_color` (ui_in[1]) to use a solid color instead of an animated gradient.
 
 ## External hardware
 
